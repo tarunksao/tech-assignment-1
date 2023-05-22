@@ -1,0 +1,31 @@
+.summaryContainer{
+    background-color: white;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 1px 1px grey;
+}
+
+.boxHeading{
+    margin-top: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.summaryText{
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+
+ion-icon{
+    color: navy;
+    width: 12px;
+    margin-bottom: -5px;
+}
