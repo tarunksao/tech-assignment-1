@@ -1,11 +1,17 @@
-const initState = {
-    month:'',
-    year:'',
-}
 
-export const dateReducer = (state=initState, {type, payload}) => {
+export const dateReducer = (state, {type, payload}) => {
     switch(type) {
         default:
             return state;
+        case 'ChangeMonth':
+            return {
+                ...state,
+                month: payload
+            }
+        case 'ChangeYear':
+            return {
+                ...state,
+                year: payload
+            }
     }
 }

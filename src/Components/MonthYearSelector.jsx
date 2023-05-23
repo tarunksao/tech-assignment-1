@@ -3,9 +3,11 @@ import styles from './Styles/MonthYearSelector.module.css';
 import { dateReducer } from '../Reducer/dateReducer';
 import { changeMonth, changeYear } from '../Reducer/dateActions';
 
+const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 let time = new Date();
 const initState = {
-    month:time.getMonth(),
+    month:monthArr[time.getMonth() -1],
     year:time.getFullYear(),
 }
 
@@ -24,18 +26,18 @@ const MonthYearSelector = () => {
                 <option value="2020">2020</option>
             </select>
             <select name="year" id="year-select" onChange={(e) => dispatch(changeMonth(e.target.value))}>
-                <option value="January">Jan</option>
-                <option value="February">Feb</option>
-                <option value="March">Mar</option>
-                <option value="April">April</option>
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="Mar">Mar</option>
+                <option value="Apr">April</option>
                 <option value="May">May</option>
-                <option value="June">Jun</option>
-                <option value="July">Jul</option>
-                <option value="August">Aug</option>
-                <option value="September">Sep</option>
-                <option value="October">Oct</option>
-                <option value="November">Nov</option>
-                <option value="December">Dec</option>
+                <option value="Jun">Jun</option>
+                <option value="Jul">Jul</option>
+                <option value="Aug">Aug</option>
+                <option value="Sep">Sep</option>
+                <option value="Oct">Oct</option>
+                <option value="Nov">Nov</option>
+                <option value="Dec">Dec</option>
             </select>
         </div>
         <button className={styles.summaryBtn}>View Statement Summary</button>
