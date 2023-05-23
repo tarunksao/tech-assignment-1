@@ -1,22 +1,29 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import styles from './Styles/MonthYearSelector.module.css';
+import { dateReducer } from '../Reducer/dateReducer';
+import { changeMonth, changeYear } from '../Reducer/dateActions';
+
+let time = new Date();
+const initState = {
+    month:time.getMonth(),
+    year:time.getFullYear(),
+}
 
 const MonthYearSelector = () => {
-    const [summaryMonth, setSummaryMonth] = useState("May");
-    const [summaryYear, setSummaryYear] = useState("2023");
+    const [state, dispatch] = useReducer(dateReducer, initState);
 
-    console.log(summaryMonth, summaryYear);
+    console.log(state.month, state.year);
 
   return (
     <div className={styles.selectorContainer}>
         <div className={styles.selectorBox}>
-            <select name="year" id="year-select" onChange={(e) => setSummaryYear(e.target.value)}>
+            <select name="year" id="year-select" onChange={(e) => dispatch(changeYear(e.target.value))}>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
             </select>
-            <select name="year" id="year-select" onChange={(e) => setSummaryMonth(e.target.value)}>
+            <select name="year" id="year-select" onChange={(e) => dispatch(changeMonth(e.target.value))}>
                 <option value="January">Jan</option>
                 <option value="February">Feb</option>
                 <option value="March">Mar</option>
