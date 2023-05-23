@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Styles/SummaryBox.module.css';
 import { Link } from 'react-router-dom';
 
+const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const monthDaysArr = [31,28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+const leapYear = (year) => {
+    if (year%4 !==0) return false;
+
+    if (year%100 === 0 && year%400 !== 0) return false;
+
+    return true;
+}
+
 const SummaryBox = ({state}) => {
+    const [maxDays, setMaxDays] = useState(monthDaysArr[state.month-1]);
+
+    console.log(monthArr[state.month-1], state.year)
+
+    useEffect(() => {
+        if (leapYear(state.year) && state.month==2){
+            setMaxDays(29);
+        } else {
+            setMaxDays(monthDaysArr[state.month-1]);
+        }
+
+    },[state])
+
   return (
     <div className={styles.summaryContainer}>
-        <p>15 Jan - 14 Feb</p>
+        <p>01 {monthArr[state.month-1]} - {maxDays} {monthArr[state.month-1]}</p>
         <p className={styles.boxHeading}>Summary</p>
         <div className={styles.summaryText}>
             <p>Opening Balance</p>
