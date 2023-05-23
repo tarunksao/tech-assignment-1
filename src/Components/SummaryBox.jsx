@@ -16,8 +16,6 @@ const leapYear = (year) => {
 const SummaryBox = ({state}) => {
     const [maxDays, setMaxDays] = useState(monthDaysArr[state.month-1]);
 
-    console.log(monthArr[state.month-1], state.year)
-
     useEffect(() => {
         if (leapYear(state.year) && state.month==='2'){
             setMaxDays(29);
@@ -53,17 +51,17 @@ const SummaryBox = ({state}) => {
         </div>
 
         <hr />
-        <div>
+        <div className={styles.dueAmounts}>
             <p className={styles.boxHeading}>TOTAL AMOUNT DUE</p>
             <p className={styles.boxHeading}>₹2830.00</p>
         </div>
-        <div>
+        <div className={styles.dueAmounts}>
             <p className={styles.summaryText}>MIN. AMOUNT DUE</p>
             <p className={styles.summaryText}>₹200.00</p>
         </div>
 
         <Link 
-            to={'/transactions'} 
+            to={`/transactions/${monthArr[state.month-1]}`} 
             style={{
                 color:'navy', 
                 textDecoration:'none', 
@@ -71,7 +69,8 @@ const SummaryBox = ({state}) => {
                 alignItems:'center', 
                 justifyContent:'flex-start', 
                 gap:'10px',
-                fontWeight:'500'
+                fontWeight:'500',
+                marginTop:'15px'
             }}>
                 View Statement Transactions 
                 <ion-icon name="chevron-forward-outline"></ion-icon>

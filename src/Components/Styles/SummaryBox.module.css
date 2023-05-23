@@ -29,3 +29,9 @@ ion-icon{
     width: 12px;
     margin-bottom: -5px;
 }
+
+.dueAmounts{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
