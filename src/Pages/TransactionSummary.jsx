@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Styles/TransactionSummary.module.css';
 import ExpensesCard from '../Components/ExpensesCard';
+import { brandsDetails } from '../Data/db';
 
 const TransactionSummary = () => {
   return (
@@ -8,15 +9,12 @@ const TransactionSummary = () => {
         <p>15 Jan - 14 Feb</p>
         <hr />
         <div>
-            <ExpensesCard />
+        { brandsDetails?.map((el) => ( 
+          <>
+            <ExpensesCard key={el.id} el={el} />
             <hr />
-            <ExpensesCard />
-            <hr />
-            <ExpensesCard />
-            <hr />
-            <ExpensesCard />
-            <hr />
-            <ExpensesCard />
+          </>
+        ))}
         </div>
     </div>
   )
