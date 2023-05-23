@@ -2,7 +2,9 @@ import React from 'react';
 import styles from './Styles/SummaryBox.module.css';
 import { Link } from 'react-router-dom';
 
-const SummaryBox = () => {
+const monthDaysArr = [31,28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+const SummaryBox = ({state}) => {
   return (
     <div className={styles.summaryContainer}>
         <p>15 Jan - 14 Feb</p>
