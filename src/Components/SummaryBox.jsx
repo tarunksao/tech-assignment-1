@@ -19,7 +19,7 @@ const SummaryBox = ({state}) => {
     console.log(monthArr[state.month-1], state.year)
 
     useEffect(() => {
-        if (leapYear(state.year) && state.month==2){
+        if (leapYear(state.year) && state.month==='2'){
             setMaxDays(29);
         } else {
             setMaxDays(monthDaysArr[state.month-1]);

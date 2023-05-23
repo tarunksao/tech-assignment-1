@@ -7,13 +7,12 @@ const TransactionSummary = () => {
   return (
     <div className={styles.transactionContainer}>
         <p>15 Jan - 14 Feb</p>
-        <hr />
         <div>
         { expenseReport?.map((el) => ( 
-          <>
-            <ExpensesCard key={el.id} el={el} />
+          <div key={el.id}>
             <hr />
-          </>
+            <ExpensesCard el={el} />
+          </div>
         ))}
         </div>
     </div>

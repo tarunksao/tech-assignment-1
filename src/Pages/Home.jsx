@@ -3,9 +3,6 @@ import MonthYearSelector from '../Components/MonthYearSelector'
 import SummaryBox from '../Components/SummaryBox'
 import { dateReducer } from '../Reducer/dateReducer';
 
-const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const monthDaysArr = [31,28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
 let time = new Date();
 const initState = {
     month:time.getMonth()+1,

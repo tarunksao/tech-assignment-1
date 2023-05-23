@@ -1,26 +1,26 @@
-.container{
+/* .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
-.container>div{
+.container{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .container>p{
     opacity: 0.7;
 }
 
-.container>div>div:first-child{
+.container>div:first-child{
     border-radius: 40px;
     width: 50px;
 }
 
-.container>div>div>img{
+.container>div>img{
     width: 50px;
     height: 50px;
     border-radius: 40px;
@@ -35,4 +35,10 @@
     font-size: 12px;
     opacity: 0.4;
     margin-top: 5px;
+}
+
+.container + p {
+    text-align: right;
+    margin-top: -40px;
+    margin-bottom: 30px;
 }
