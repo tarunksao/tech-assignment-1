@@ -8,20 +8,25 @@ html, body{
 }
 
 .App{
-  min-height: 650px;
-  /* height: 100%; */
+  margin: auto;
+  min-height: 700px;
+  width: 425px;
+  text-align: center;
   background-color: rgb(215, 214, 222);
   padding-bottom: 40px;
 }
 
 @media screen and (max-width:425px) {
   .App {
+    margin: auto;
     text-align: center;
   }
 }
 
-@media screen and (min-width:428px){
+@media screen and (min-width:425px) and (max-width:1532px){
   .App{
-    display: none;
+    margin: auto;
+    max-width: 425px;
+    text-align: center;
   }
 }
