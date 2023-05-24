@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Styles/ExpensesCard.module.css';
 
 const ExpensesCard = ({el}) => {
-  console.table(el);
+  
   return (
     <>
         <div className={styles.container}>
