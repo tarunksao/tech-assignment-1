@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './Styles/MonthYearSelector.module.css';
 import { changeMonth, changeYear } from '../Reducer/dateActions';
+import styles from './Styles/MonthYearSelector.module.css';
 
 // const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -20,10 +20,14 @@ const MonthYearSelector = ({state, dispatch}) => {
         }
     }
 
+    const handleYearChange = (e) => {
+        dispatch(changeYear(e.target.value));
+    }
+
   return (
     <div className={styles.selectorContainer}>
         <div className={styles.selectorBox}>
-            <select name="year" id="year-select" value={state.year} onChange={(e) => dispatch(changeYear(e.target.value))}>
+            <select name="year" id="year-select" value={state.year} onChange={(e) => handleYearChange(e)}>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>

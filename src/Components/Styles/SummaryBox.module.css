@@ -9,10 +9,15 @@
 }
 
 .boxHeading{
+    text-align: left;
     margin-top: 25px;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 20px;
+}
+
+.summary-date{
+    text-align: left;
 }
 
 .summaryText{
@@ -34,4 +39,15 @@ ion-icon{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.linkText{
+    color:'navy';
+    text-decoration:none; 
+    display:flex;
+    align-items:center; 
+    justify-content:flex-start; 
+    gap:10px;
+    font-weight:500;
+    margin-top:15px;
 }

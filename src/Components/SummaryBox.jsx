@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Styles/SummaryBox.module.css';
 import { Link } from 'react-router-dom';
 import { expenses } from '../Data/db';
+import styles from './Styles/SummaryBox.module.css';
 
 const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const monthDaysArr = [31,28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+function findExpenseSummary(setExpense, state) {
+    setExpense(expenses.filter((el) => {
+        let startDate = new Date(el.startDate);
+        if (state.month-1 === startDate.getMonth() && state.year == startDate.getFullYear()){
+            return el;
+        } else {
+            return null;
+        }
+    }))
+}
 
 const leapYear = (year) => {
     if (year%4 !==0) return false;
@@ -20,14 +31,8 @@ const SummaryBox = ({state}) => {
     // const [debits, setDebits] = useState(0);
 
     useEffect(() => {
-        setExpense(expenses.filter((el) => {
-            let startDate = new Date(el.startDate);
-            if (state.month-1 === startDate.getMonth() && state.year == startDate.getFullYear()){
-                return el;
-            } else {
-                return null;
-            }
-        }))
+        findExpenseSummary(setExpense, state);
+        
         if (leapYear(state.year) && state.month==='2'){
             setMaxDays(29);
         } else {
@@ -53,7 +58,7 @@ const SummaryBox = ({state}) => {
 
   return (
     <div className={styles.summaryContainer}>
-        <p>01 {monthArr[state.month-1]} - {maxDays} {monthArr[state.month-1]}</p>
+        <p className={styles["summary-date"]}>01 {monthArr[state.month-1]} - {maxDays} {monthArr[state.month-1]}</p>
         <p className={styles.boxHeading}>Summary</p>
         <div className={styles.summaryText}>
             <p>Opening Balance</p>
@@ -88,16 +93,8 @@ const SummaryBox = ({state}) => {
 
         <Link 
             to={`/transactions/${monthArr[state.month-1]}-${state.year}`} 
-            style={{
-                color:'navy', 
-                textDecoration:'none', 
-                display:'flex', 
-                alignItems:'center', 
-                justifyContent:'flex-start', 
-                gap:'10px',
-                fontWeight:'500',
-                marginTop:'15px'
-            }}>
+            className={styles.linkText}
+            >
                 View Statement Transactions 
                 <ion-icon name="chevron-forward-outline"></ion-icon>
         </Link>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Styles/TransactionSummary.module.css';
+import { useParams } from 'react-router-dom';
 import ExpensesCard from '../Components/ExpensesCard';
 import { expenses } from '../Data/db';
-import { useParams } from 'react-router-dom';
+import styles from './Styles/TransactionSummary.module.css';
 
 const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const monthDaysArr = [31,28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -17,8 +17,8 @@ const leapYear = (year) => {
 
 const TransactionSummary = () => {
   const {date} = useParams();
-  const [month, year] = date.trim().split('-');
   const [expense, setExpense] = useState({});
+  const [month, year] = date.trim().split('-');
 
   const index = monthArr.indexOf(month);
 
@@ -45,7 +45,7 @@ const TransactionSummary = () => {
 
   return (
     <div className={styles.transactionContainer}>
-        <p>01 {month} - {maxDays} {month}</p>
+        <p className={styles['summary-date']}>01 {month} - {maxDays} {month}</p>
         <div>
         { expense[0]?.transactions?.map((el) => ( 
           <div key={el.id}>
