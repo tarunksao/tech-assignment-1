@@ -15,6 +15,17 @@ const leapYear = (year) => {
     return true;
 }
 
+function findExpenseSummary(setExpense, month, year) {
+    setExpense(expenses.filter((el) => {
+      let startDate = new Date(el.startDate);
+      if (month === monthArr[startDate.getMonth()] && year == startDate.getFullYear()){
+        return el;
+      } else {
+        return null;
+      }
+    }))
+}
+
 const TransactionSummary = () => {
   const {date} = useParams();
   const [expense, setExpense] = useState({});
@@ -25,14 +36,7 @@ const TransactionSummary = () => {
   const [maxDays, setMaxDays] = useState(monthDaysArr[index]);
 
   useEffect(() => {
-    setExpense(expenses.filter((el) => {
-      let startDate = new Date(el.startDate);
-      if (month === monthArr[startDate.getMonth()] && year == startDate.getFullYear()){
-        return el;
-      } else {
-        return null;
-      }
-    }))
+    findExpenseSummary(setExpense, month, year);
 
     if (leapYear(Number(year)) && month ==='Feb'){
             setMaxDays(29);
@@ -44,7 +48,7 @@ const TransactionSummary = () => {
   // console.table(expense);
 
   return (
-    <div className={styles.transactionContainer}>
+    <div className={styles['transaction-container']}>
         <p className={styles['summary-date']}>01 {month} - {maxDays} {month}</p>
         <div>
         { expense[0]?.transactions?.map((el) => ( 
