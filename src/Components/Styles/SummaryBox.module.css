@@ -1,4 +1,4 @@
-.summaryContainer{
+.summary-container{
     background-color: white;
     margin: auto;
     margin-top: 20px;
@@ -8,7 +8,7 @@
     box-shadow: 1px 1px grey;
 }
 
-.boxHeading{
+.box-heading{
     text-align: left;
     margin-top: 25px;
     font-size: 14px;
@@ -20,7 +20,7 @@
     text-align: left;
 }
 
-.summaryText{
+.summary-text{
     font-size: 13px;
     display: flex;
     justify-content: space-between;
@@ -35,13 +35,13 @@ ion-icon{
     margin-bottom: -5px;
 }
 
-.dueAmounts{
+.due-amounts{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.linkText{
+.link-text{
     color:'navy';
     text-decoration:none; 
     display:flex;

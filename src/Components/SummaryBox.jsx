@@ -57,43 +57,43 @@ const SummaryBox = ({state}) => {
     }
 
   return (
-    <div className={styles.summaryContainer}>
+    <div className={styles['summary-container']}>
         <p className={styles["summary-date"]}>01 {monthArr[state.month-1]} - {maxDays} {monthArr[state.month-1]}</p>
-        <p className={styles.boxHeading}>Summary</p>
-        <div className={styles.summaryText}>
+        <p className={styles['box-heading']}>Summary</p>
+        <div className={styles['summary-text']}>
             <p>Opening Balance</p>
             <p>₹{expense[0]?.openingBal || '0.00'}</p>
         </div>
-        <div className={styles.summaryText}>
+        <div className={styles['summary-text']}>
             <p>Payment</p>
             <p>₹0.00</p>
         </div>
-        <div className={styles.summaryText}>
+        <div className={styles['summary-text']}>
             <p>Refund/Credits</p>
             <p>₹0.00</p>
         </div>
-        <div className={styles.summaryText}>
+        <div className={styles['summary-text']}>
             <p>Purchase/Debits</p>
             <p>₹{getDebitAmount()}</p>
         </div>
-        <div className={styles.summaryText}>
+        <div className={styles['summary-text']}>
             <p>Cashbacks</p>
             <p>₹{getCashbackAmount()}</p>
         </div>
 
         <hr />
-        <div className={styles.dueAmounts}>
-            <p className={styles.boxHeading}>TOTAL AMOUNT DUE</p>
-            <p className={styles.boxHeading}>₹{getDebitAmount()}</p>
+        <div className={styles['due-amounts']}>
+            <p className={styles['box-heading']}>TOTAL AMOUNT DUE</p>
+            <p className={styles['box-heading']}>₹{getDebitAmount()}</p>
         </div>
-        <div className={styles.dueAmounts}>
-            <p className={styles.summaryText}>MIN. AMOUNT DUE</p>
-            <p className={styles.summaryText}>₹200.00</p>
+        <div className={styles['due-amounts']}>
+            <p className={styles['summary-text']}>MIN. AMOUNT DUE</p>
+            <p className={styles['summary-text']}>₹200.00</p>
         </div>
 
         <Link 
             to={`/transactions/${monthArr[state.month-1]}-${state.year}`} 
-            className={styles.linkText}
+            className={styles['link-text']}
             >
                 View Statement Transactions 
                 <ion-icon name="chevron-forward-outline"></ion-icon>
