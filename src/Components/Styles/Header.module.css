@@ -1,4 +1,4 @@
-.headerContainer{
+.header-container{
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -10,7 +10,7 @@
     z-index: 10;
 }
 
-.leftArrow{
+.left-arrow{
     width: 7px;
     height: 7px;
     border-left: 2px solid white;
@@ -18,7 +18,7 @@
     transform: rotate(45deg);
 }
 
-.headerContainer>p{
+.header-container>p{
     width: 100%;
     color: white;
     text-align: center;

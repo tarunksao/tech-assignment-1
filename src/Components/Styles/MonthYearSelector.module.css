@@ -1,4 +1,4 @@
-.selectorContainer{
+.selector-container{
     background-color: white;
     text-align: center;
     margin: auto;
@@ -9,14 +9,14 @@
     box-shadow: 1px 1px grey;
 }
 
-.selectorBox{
+.selector-box{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.selectorBox>select {
+.selector-box>select {
     width: 45%;
     height: 30px;
     padding: 5px 10px;
@@ -24,7 +24,7 @@
     opacity: 0.8;
 }
 
-.summaryBtn{
+.summary-btn{
     background-color: rgb(43, 43, 153);
     color: white;
     padding: 10px 0;

@@ -4,9 +4,9 @@ import styles from './Styles/Header.module.css';
 
 const Header = () => {
   return (
-    <div className={styles.headerContainer}>
+    <div className={styles['header-container']}>
         <Link to='/'>
-          <div className={styles.leftArrow}>
+          <div className={styles['left-arrow']}>
           </div>
         </Link>
         <p>My Card - Statements</p>
